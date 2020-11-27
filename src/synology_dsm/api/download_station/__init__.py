@@ -55,9 +55,7 @@ class SynoDownloadStation:
 
     def update_schedule_config(self):
         """Update schedule configuration about the Download Station instance."""
-        self._schedule_config = self._dsm.get(self.SCHEDULE_API_KEY, "GetConfig")[
-            "data"
-        ]
+        self._schedule_config = self._dsm.get(self.SCHEDULE_API_KEY, "GetConfig")["data"]
 
     def get_schedule_config(self):
         """Return schedule configuration about the Download Station instance."""

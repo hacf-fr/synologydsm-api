@@ -21,6 +21,9 @@ from .download_station.const_6_download_station_info import (
 from .download_station.const_6_download_station_stat import (
     DSM_6_DOWNLOAD_STATION_STAT_INFO,
 )
+from .download_station.const_6_download_station_schedule_config import (
+    DSM_6_DOWNLOAD_STATION_SCHEDULE_CONFIG,
+)
 from .download_station.const_6_download_station_task import (
     DSM_6_DOWNLOAD_STATION_TASK_LIST,
 )
@@ -77,6 +80,7 @@ __all__ = [
     "DSM_6_DOWNLOAD_STATION_INFO_CONFIG",
     "DSM_6_DOWNLOAD_STATION_INFO_INFO",
     "DSM_6_DOWNLOAD_STATION_STAT_INFO",
+    "DSM_6_DOWNLOAD_STATION_SCHEDULE_CONFIG",
     "DSM_6_DOWNLOAD_STATION_TASK_LIST",
     "DSM_6_DSM_INFORMATION",
     "DSM_6_DSM_NETWORK_2LAN_1PPPOE",
