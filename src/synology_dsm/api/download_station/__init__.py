@@ -7,6 +7,7 @@ class SynoDownloadStation:
 
     API_KEY = "SYNO.DownloadStation.*"
     INFO_API_KEY = "SYNO.DownloadStation.Info"
+    SCHEDULE_API_KEY = "SYNO.DownloadStation.Schedule"
     STAT_API_KEY = "SYNO.DownloadStation.Statistic"
     TASK_API_KEY = "SYNO.DownloadStation.Task"
 
@@ -14,6 +15,10 @@ class SynoDownloadStation:
         """Initialize a Download Station."""
         self._dsm = dsm
         self._tasks_by_id = {}
+        self._schedule_config = {}
+        self._stat = {}
+        self._info = {}
+        self._config = {}
         self.additionals = [
             "detail",
             "file",
@@ -32,17 +37,50 @@ class SynoDownloadStation:
                 self._tasks_by_id[task_data["id"]] = SynoDownloadTask(task_data)
 
     # Global
+    def update_info(self):
+        """Update info about the Download Station instance."""
+        self._info = self._dsm.get(self.INFO_API_KEY, "GetInfo")["data"]
+        
     def get_info(self):
         """Return general informations about the Download Station instance."""
-        return self._dsm.get(self.INFO_API_KEY, "GetInfo")
+        return self._info
+
+    def update_config(self):
+        """Update configuration about the Download Station instance."""
+        self._config = self._dsm.get(self.INFO_API_KEY, "GetConfig")["data"]
 
     def get_config(self):
         """Return configuration about the Download Station instance."""
-        return self._dsm.get(self.INFO_API_KEY, "GetConfig")
+        return self._config
+
+    def update_schedule_config(self):
+        """Update schedule configuration about the Download Station instance."""
+        self._schedule_config = self._dsm.get(self.SCHEDULE_API_KEY, "GetConfig")[
+            "data"
+        ]
+
+    def get_schedule_config(self):
+        """Return schedule configuration about the Download Station instance."""
+        return self._schedule_config
+
+    def set_schedule_config(self, enabled: bool = None, emule_enabled: bool = None):
+        """Set schedule configuration about the Download Station instance."""
+        config = {}
+        if enabled != None:
+            config["enabled"] = enabled
+        if emule_enabled != None:
+            config["emule_enabled"] = emule_enabled
+        res = self._dsm.get(self.SCHEDULE_API_KEY, "SetConfig", config)
+        self.update_schedule_config()
+        return res
+
+    def update_stat(self):
+        """Update statistic about the Download Station instance."""
+        self._stat = self._dsm.get(self.STAT_API_KEY, "GetInfo")["data"]
 
     def get_stat(self):
         """Return statistic about the Download Station instance."""
-        return self._dsm.get(self.STAT_API_KEY, "GetInfo")
+        return self._stat
 
     # Downloads
     def get_all_tasks(self):
