@@ -28,8 +28,8 @@ from .api_data.dsm_6 import DSM_6_CORE_UTILIZATION
 from .api_data.dsm_6 import DSM_6_CORE_UTILIZATION_ERROR_1055
 from .api_data.dsm_6 import DSM_6_DOWNLOAD_STATION_INFO_CONFIG
 from .api_data.dsm_6 import DSM_6_DOWNLOAD_STATION_INFO_INFO
-from .api_data.dsm_6 import DSM_6_DOWNLOAD_STATION_STAT_INFO
 from .api_data.dsm_6 import DSM_6_DOWNLOAD_STATION_SCHEDULE_CONFIG
+from .api_data.dsm_6 import DSM_6_DOWNLOAD_STATION_STAT_INFO
 from .api_data.dsm_6 import DSM_6_DOWNLOAD_STATION_TASK_LIST
 from .api_data.dsm_6 import DSM_6_DSM_INFORMATION
 from .api_data.dsm_6 import DSM_6_DSM_NETWORK_2LAN_1PPPOE

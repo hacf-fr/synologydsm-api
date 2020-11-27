@@ -40,7 +40,7 @@ class SynoDownloadStation:
     def update_info(self):
         """Update info about the Download Station instance."""
         self._info = self._dsm.get(self.INFO_API_KEY, "GetInfo")["data"]
-        
+
     def get_info(self):
         """Return general informations about the Download Station instance."""
         return self._info
@@ -55,7 +55,9 @@ class SynoDownloadStation:
 
     def update_schedule_config(self):
         """Update schedule configuration about the Download Station instance."""
-        self._schedule_config = self._dsm.get(self.SCHEDULE_API_KEY, "GetConfig")["data"]
+        self._schedule_config = self._dsm.get(self.SCHEDULE_API_KEY, "GetConfig")[
+            "data"
+        ]
 
     def get_schedule_config(self):
         """Return schedule configuration about the Download Station instance."""
@@ -64,9 +66,9 @@ class SynoDownloadStation:
     def set_schedule_config(self, enabled: bool = None, emule_enabled: bool = None):
         """Set schedule configuration about the Download Station instance."""
         config = {}
-        if enabled != None:
+        if enabled is not None:
             config["enabled"] = enabled
-        if emule_enabled != None:
+        if emule_enabled is not None:
             config["emule_enabled"] = emule_enabled
         res = self._dsm.get(self.SCHEDULE_API_KEY, "SetConfig", config)
         self.update_schedule_config()

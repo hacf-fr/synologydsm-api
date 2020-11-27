@@ -139,7 +139,7 @@ Download Station usage
     api = SynologyDSM("<IP/DNS>", "<port>", "<username>", "<password>")
 
     if "SYNO.DownloadStation.Info" in api.apis:
-        
+
         api.download_station.update_info()
         api.download_station.get_info()
 
@@ -153,7 +153,7 @@ Download Station usage
         api.download_station.get_schedule_config()
         # set_schedule_config(self, enabled: bool = None, emule_enabled: bool = None)
         api.download_station.set_schedule_config(True, False)
-        
+
 
         # The download list will be updated after each of the following functions:
         # You should have the right on the (default) directory that the download will be saved, or you will get a 403 or 406 error

@@ -877,10 +877,10 @@ class TestSynologyDSM(TestCase):
 
         self.api.download_station.update_stat()
         assert self.api.download_station.get_stat()["speed_download"]
-        
+
         self.api.download_station.update_schedule_config()
-        assert self.api.download_station.get_schedule_config()["enabled"] is True
-        assert self.api.download_station.get_schedule_config()["emule_enabled"] is False
+        assert self.api.download_station.get_schedule_config()["enabled"]
+        assert not self.api.download_station.get_schedule_config()["emule_enabled"]
 
         self.api.download_station.update()
         assert self.api.download_station.get_all_tasks()
