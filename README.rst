@@ -1,8 +1,6 @@
 ===========================
 Python API for Synology DSM
 ===========================
-![Tests]()
-
 
 .. image:: https://github.com/hacf-fr/synologydsm-api/workflows/Tests/badge.svg
     :target: https://github.com/hacf-fr/synologydsm-api/actions?query=workflow%3ATests+branch%3Amaster
