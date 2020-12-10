@@ -904,7 +904,10 @@ class TestSynologyDSM(TestCase):
         assert self.api.surveillance_station.get_all_cameras()
         assert self.api.surveillance_station.get_camera(1)
         assert self.api.surveillance_station.get_camera_live_view_path(1)
-        assert self.api.surveillance_station.get_camera_live_view_path(1, "rtsp")
+        assert (
+            self.api.surveillance_station.get_camera_live_view_path(1, "rtsp")
+            == "rtsp://syno:stmkey1234567890@nas.mywebsite.me:554/Sms=1.unicast"
+        )
 
         # Motion detection
         assert self.api.surveillance_station.enable_motion_detection(1).get("success")

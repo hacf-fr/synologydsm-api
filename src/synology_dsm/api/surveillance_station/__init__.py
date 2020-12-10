@@ -27,7 +27,9 @@ class SynoSurveillanceStation:
             if camera_data["id"] in self._cameras_by_id:
                 self._cameras_by_id[camera_data["id"]].update(camera_data)
             else:
-                self._cameras_by_id[camera_data["id"]] = SynoCamera(camera_data)
+                self._cameras_by_id[camera_data["id"]] = SynoCamera(
+                    camera_data, self._dsm._base_url
+                )
 
         for camera_id in self._cameras_by_id:
             self._cameras_by_id[camera_id].update_motion_detection(

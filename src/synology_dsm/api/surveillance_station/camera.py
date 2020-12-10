@@ -1,4 +1,7 @@
 """SurveillanceStation camera."""
+from urllib.parse import urlparse
+from urllib.parse import urlsplit
+
 from .const import MOTION_DETECTION_DISABLED
 from .const import RECORDING_STATUS
 
@@ -6,10 +9,10 @@ from .const import RECORDING_STATUS
 class SynoCamera:
     """An representation of a Synology SurveillanceStation camera."""
 
-    def __init__(self, data, live_view_data=None):
+    def __init__(self, data, base_url, live_view_data=None):
         """Initialize a Surveillance Station camera."""
         self._data = data
-        self.live_view = SynoCameraLiveView(live_view_data)
+        self.live_view = SynoCameraLiveView(live_view_data, urlsplit(base_url).hostname)
         self._motion_detection_enabled = None
 
     def update(self, data):
@@ -66,9 +69,18 @@ class SynoCamera:
 class SynoCameraLiveView:
     """An representation of a Synology SurveillanceStation camera live view."""
 
-    def __init__(self, data):
+    def __init__(self, data, base_url):
         """Initialize a Surveillance Station camera live view."""
+        self._base_url = base_url
         self.update(data)
+
+    def __format(self, url):
+        """Format live stream based on base url."""
+        parsed_url = urlparse(url)
+        new_url = parsed_url._replace(
+            netloc=self._base_url.join(parsed_url.netloc.rsplit(parsed_url.hostname, 1))
+        )
+        return new_url.geturl()
 
     def update(self, data):
         """Update the camera live view."""
@@ -77,24 +89,24 @@ class SynoCameraLiveView:
     @property
     def mjpeg_http(self):
         """Return the mjpeg stream (over http) path of the camera."""
-        return self._data["mjpegHttpPath"]
+        return self.__format(self._data["mjpegHttpPath"])
 
     @property
     def multicast(self):
         """Return the multi-cast path of the camera."""
-        return self._data["multicstPath"]
+        return self.__format(self._data["multicstPath"])
 
     @property
     def mxpeg_http(self):
         """Return the mxpeg stream path of the camera."""
-        return self._data["mxpegHttpPath"]
+        return self.__format(self._data["mxpegHttpPath"])
 
     @property
     def rtsp_http(self):
         """Return the RTSP stream (over http) path of the camera."""
-        return self._data["rtspOverHttpPath"]
+        return self.__format(self._data["rtspOverHttpPath"])
 
     @property
     def rtsp(self):
         """Return the RTSP stream path of the camera."""
-        return self._data["rtspPath"]
+        return self.__format(self._data["rtspPath"])
