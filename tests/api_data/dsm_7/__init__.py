@@ -1,4 +1,4 @@
-"""DSM 6 datas."""
+"""DSM 7 datas."""
 from .const_7_api_auth import DSM_7_AUTH_LOGIN
 from .const_7_api_auth import DSM_7_AUTH_LOGIN_2SA
 from .const_7_api_auth import DSM_7_AUTH_LOGIN_2SA_OTP
