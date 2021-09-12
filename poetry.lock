@@ -941,14 +941,6 @@ test = ["pytest", "typing-extensions", "mypy"]
 
 [[package]]
 name = "typing-extensions"
-version = "3.10.0.0"
-description = "Backported and Experimental Type Hints for Python 3.5+"
-category = "dev"
-optional = false
-python-versions = "*"
-
-[[package]]
-name = "typing-extensions"
 version = "3.10.0.2"
 description = "Backported and Experimental Type Hints for Python 3.5+"
 category = "dev"
@@ -990,7 +982,7 @@ testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 
 [[package]]
 name = "xdoctest"
-version = "0.15.6"
+version = "0.15.8"
 description = "A rewrite of the builtin doctest module"
 category = "dev"
 optional = false
@@ -1023,7 +1015,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.0"
-content-hash = "c1cd8e94f1642ac97a1b19fac1878e7d553830bd1e46a6154ae6ca76257caefb"
+content-hash = "6379b9df303011a8da89169fb56fbd9129dd756533e9d7ed2a1ed0490a58f80a"
 
 [metadata.files]
 alabaster = [
@@ -1619,9 +1611,6 @@ typeguard = [
     {file = "typeguard-2.12.1.tar.gz", hash = "sha256:c2af8b9bdd7657f4bd27b45336e7930171aead796711bc4cfc99b4731bb9d051"},
 ]
 typing-extensions = [
-    {file = "typing_extensions-3.10.0.0-py2-none-any.whl", hash = "sha256:0ac0f89795dd19de6b97debb0c6af1c70987fd80a2d62d1958f7e56fcc31b497"},
-    {file = "typing_extensions-3.10.0.0-py3-none-any.whl", hash = "sha256:779383f6086d90c99ae41cf0ff39aac8a7937a9283ce0a414e5dd782f4c94a84"},
-    {file = "typing_extensions-3.10.0.0.tar.gz", hash = "sha256:50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"},
     {file = "typing_extensions-3.10.0.2-py2-none-any.whl", hash = "sha256:d8226d10bc02a29bcc81df19a26e56a9647f8b0a6d4a83924139f4a8b01f17b7"},
     {file = "typing_extensions-3.10.0.2-py3-none-any.whl", hash = "sha256:f1d25edafde516b146ecd0613dabcc61409817af4766fbbcfb8d1ad4ec441a34"},
     {file = "typing_extensions-3.10.0.2.tar.gz", hash = "sha256:49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e"},
@@ -1635,9 +1624,9 @@ virtualenv = [
     {file = "virtualenv-20.7.2.tar.gz", hash = "sha256:9ef4e8ee4710826e98ff3075c9a4739e2cb1040de6a2a8d35db0055840dc96a0"},
 ]
 xdoctest = [
-    {file = "xdoctest-0.15.6-py2.py3-none-any.whl", hash = "sha256:4ba30ad2aadd6474388b185ced6d8146490d3720665c6964891c19b4b169b5fc"},
-    {file = "xdoctest-0.15.6-py3-none-any.whl", hash = "sha256:c8ea193a19183f38fb85a0dc1659f1a39b0437ec892d692d44d586ae2780961f"},
-    {file = "xdoctest-0.15.6.tar.gz", hash = "sha256:49ebffcfa49b810d5c02c6bc1ef0487a36a6a27bb46c39a137952fda3f03ae33"},
+    {file = "xdoctest-0.15.8-py2.py3-none-any.whl", hash = "sha256:566e2bb2135e144e66ccd390affbe4504a2e96c25ef16260843b9680326cadc9"},
+    {file = "xdoctest-0.15.8-py3-none-any.whl", hash = "sha256:80a57af2f8ca709ab9da111ab3b16ec474f11297b9efcc34709a2c3e56ed9ce6"},
+    {file = "xdoctest-0.15.8.tar.gz", hash = "sha256:ddd128780593161a7398fcfefc49f5f6dfe4c2eb2816942cb53768d43bcab7b9"},
 ]
 zipp = [
     {file = "zipp-3.5.0-py3-none-any.whl", hash = "sha256:957cfda87797e389580cb8b9e3870841ca991e2125350677b2ca83a0e99390a3"},
