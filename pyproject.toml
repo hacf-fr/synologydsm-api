@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.rst"
 homepage = "https://github.com/hacf-fr/synologydsm-api"
 repository = "https://github.com/hacf-fr/synologydsm-api"
-documentation = "https://synologydsm-api.readthedocs.io"
+documentation = "https://github.com/hacf-fr/synologydsm-api/blob/master/README.rst"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
@@ -41,8 +41,6 @@ safety = "^1.10.3"
 mypy = "^0.910"
 typeguard = "^2.12.1"
 xdoctest = {extras = ["colors"], version = "^0.15.8"}
-sphinx = "^4.2.0"
-sphinx-autobuild = "^2021.3.14"
 pre-commit = "^2.11.1"
 flake8 = "^3.9.0"
 black = "^21.8b0"
@@ -54,7 +52,6 @@ pep8-naming = "^0.12.1"
 darglint = "^1.7.0"
 reorder-python-imports = "^2.4.0"
 pre-commit-hooks = "^4.0.1"
-sphinx-rtd-theme = "^0.5.2"
 Pygments = "^2.10.0"
 
 [tool.poetry.scripts]
