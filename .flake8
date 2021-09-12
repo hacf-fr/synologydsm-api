@@ -13,3 +13,4 @@ per-file-ignores =
     tests/*:S101
     tests/**/const_*.py:B950
     src/synology_dsm/const.py:B950
+    src/synology_dsm/exceptions.py:N818
