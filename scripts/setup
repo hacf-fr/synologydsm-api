@@ -14,5 +14,8 @@ if [ ! -f "$SETTINGS_FILE" ]; then
     cp "$SETTINGS_TEMPLATE_FILE" "$SETTINGS_FILE"
 fi
 
+# create venv
+poetry install
+
 # install git pre-commit hook
 nox --session=pre-commit -- install

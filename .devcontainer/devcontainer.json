@@ -14,8 +14,8 @@
   ],
   // Please keep this file in sync with settings in .vscode/settings.default.json
   "settings": {
-    "python.pythonPath": "/usr/local/bin/python",
-    "python.linting.pylintEnabled": true,
+    "python.pythonPath": ".venv/bin/python",
+    "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
     "python.formatting.provider": "black",
     "editor.formatOnPaste": false,
