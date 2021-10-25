@@ -53,6 +53,7 @@ class SynologyDSM:
         timeout: int = None,
         device_token: str = None,
         debugmode: bool = False,
+        session_name: str = None,
     ):
         """Constructor method."""
         self.username = username
@@ -66,6 +67,7 @@ class SynologyDSM:
         self._session.verify = self._verify
 
         # Login
+        self.session_name = session_name
         self._session_id = None
         self._syno_token = None
         self._device_token = device_token
@@ -151,6 +153,9 @@ class SynologyDSM:
             "device_name": socket.gethostname(),
             "format": "sid",
         }
+
+        if self.session_name is not None:
+            params['session'] = self.session_name
 
         if otp_code:
             params["otp_code"] = otp_code
