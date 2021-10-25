@@ -51,9 +51,12 @@ Constructor
         timeout=None,
         device_token=None,
         debugmode=False,
+        session_name=None
     )
 
 ``device_token`` should be added when using a two-step authentication account, otherwise DSM will ask to login with a One Time Password (OTP) and requests will fail (see the login section for more details).
+
+``session_name`` should be added when using a non admin account.
 
 Default ``timeout`` is 10 seconds.
 
