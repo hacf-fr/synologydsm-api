@@ -55,7 +55,7 @@ class SynoSurveillanceStation:
     # Camera
     def get_all_cameras(self):
         """Return a list of cameras."""
-        return self._cameras_by_id.values()
+        return list(self._cameras_by_id.values())
 
     def get_camera(self, camera_id):
         """Return camera matching camera_id."""
