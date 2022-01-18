@@ -169,8 +169,8 @@ Surveillance Station usage
     # Returns a list of cached cameras available
     cameras = surveillance.get_all_cameras()
 
-    # Assuming there's at least one camera, get the first camera_id
-    camera_id = cameras[0].camera_id
+    # Assuming there's at least one camera, get the first camera id
+    camera_id = cameras[0].id
 
     # Returns cached camera object by camera_id
     camera = surveillance.get_camera(camera_id)

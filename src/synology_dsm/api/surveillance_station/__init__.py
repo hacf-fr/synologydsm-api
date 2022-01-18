@@ -13,6 +13,7 @@ class SynoSurveillanceStation:
     CAMERA_EVENT_API_KEY = "SYNO.SurveillanceStation.Camera.Event"
     HOME_MODE_API_KEY = "SYNO.SurveillanceStation.HomeMode"
     SNAPSHOT_API_KEY = "SYNO.SurveillanceStation.SnapShot"
+    EXTEVENT_API_KEY = "SYNO.SurveillanceStation.ExternalEvent"
 
     def __init__(self, dsm):
         """Initialize a Surveillance Station."""
@@ -134,6 +135,14 @@ class SynoSurveillanceStation:
             self.CAMERA_EVENT_API_KEY,
             "MDParamSave",
             {"camId": camera_id, "source": MOTION_DETECTION_DISABLED},
+        )
+
+    def ext_event_trigger(self,eventId=1,event_message="event_message"):
+        """Trigger external event"""
+        return self._dsm.get(
+            self.EXTEVENT_API_KEY,
+            "Trigger",
+            {"eventId": eventId, "eventName": event_message},
         )
 
     # Home mode
