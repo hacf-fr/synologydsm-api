@@ -167,3 +167,45 @@ class SynoCoreUtilization:
                 return SynoFormatHelper.bytes_to_readable(return_data)
             return return_data
         return None
+
+    @property
+    def disk(self):
+        """Gets disk utilization."""
+        return self._data.get("disk", {})
+
+    def _get_disk(self, disk_id):
+        """Function to get specific disk (sata1, total, etc)."""
+        if disk_id == "total":
+            return self.disk.get("total", None)
+        else:
+            for disk in self.disk.get("disk", []):
+                if disk["device"] == disk_id:
+                    return disk
+        return None
+
+    def disk_utilization(self):
+        """Total percent of disk being used."""
+        disk = self._get_disk("total")
+        if disk:
+            return int(disk["utilization"])
+        return None
+
+    def disk_read(self, human_readable=False):
+        """Total bytes being read from disk."""
+        disk = self._get_disk("total")
+        if disk:
+            return_data = int(disk["read_byte"])
+            if human_readable:
+                return SynoFormatHelper.bytes_to_readable(return_data)
+            return return_data
+        return None
+
+    def disk_write(self, human_readable=False):
+        """Total bytes being written to disk."""
+        disk = self._get_disk("total")
+        if disk:
+            return_data = int(disk["write_byte"])
+            if human_readable:
+                return SynoFormatHelper.bytes_to_readable(return_data)
+            return return_data
+        return None

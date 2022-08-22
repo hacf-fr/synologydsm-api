@@ -583,3 +583,13 @@ class TestSynologyDSM:
         assert dsm.utilisation.network_up(True)
         assert dsm.utilisation.network_down()
         assert dsm.utilisation.network_down(True)
+
+    def test_utilisation_disk(self, dsm):
+        """Test utilisation disk."""
+        dsm.utilisation.update()
+        assert dsm.utilisation.disk
+        assert dsm.utilisation.disk_utilization()
+        assert dsm.utilisation.disk_read()
+        assert dsm.utilisation.disk_read(True)
+        assert dsm.utilisation.disk_write()
+        assert dsm.utilisation.disk_write(True)

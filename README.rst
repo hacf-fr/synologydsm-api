@@ -101,6 +101,9 @@ The ``SynologyDSM`` class can also ``update()`` all APIs at once.
     print("Memory Use:      " + str(api.utilisation.memory_real_usage) + " %")
     print("Net Up:          " + str(api.utilisation.network_up()))
     print("Net Down:        " + str(api.utilisation.network_down()))
+    print("Disk Util:       " + str(api.utilisation.disk_utilization()) + " %")
+    print("Disk Read:       " + str(api.utilisation.disk_read()))
+    print("Disk Write:      " + str(api.utilisation.disk_write()))
     print("--")
 
     print("=== Storage ===")
