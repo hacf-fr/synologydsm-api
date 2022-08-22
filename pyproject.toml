@@ -40,7 +40,7 @@ coverage = {extras = ["toml"], version = "^5.3"}
 safety = "^1.10.3"
 mypy = "^0.910"
 typeguard = "^2.12.1"
-xdoctest = {extras = ["colors"], version = "^0.15.8"}
+xdoctest = {extras = ["colors"], version = "^1.0.2"}
 pre-commit = "^2.11.1"
 flake8 = "^3.9.0"
 black = "^21.8b0"
