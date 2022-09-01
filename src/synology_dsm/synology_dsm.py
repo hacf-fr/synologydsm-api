@@ -16,6 +16,7 @@ from .api.core.utilization import SynoCoreUtilization
 from .api.download_station import SynoDownloadStation
 from .api.dsm.information import SynoDSMInformation
 from .api.dsm.network import SynoDSMNetwork
+from .api.photos import SynoPhotos
 from .api.storage.storage import SynoStorage
 from .api.surveillance_station import SynoSurveillanceStation
 from .const import API_AUTH
@@ -77,6 +78,7 @@ class SynologyDSM:
         self._download = None
         self._information = None
         self._network = None
+        self._photos = None
         self._security = None
         self._share = None
         self._storage = None
@@ -376,6 +378,9 @@ class SynologyDSM:
             if hasattr(self, "_" + api):
                 setattr(self, "_" + api, None)
                 return True
+            if api == SynoPhotos.API_KEY:
+                self._photos = None
+                return True
             if api == SynoCoreSecurity.API_KEY:
                 self._security = None
                 return True
@@ -400,6 +405,9 @@ class SynologyDSM:
             if api == SynoSurveillanceStation.API_KEY:
                 self._surveillance = None
                 return True
+        if isinstance(api, SynoPhotos):
+            self._photos = None
+            return True
         if isinstance(api, SynoCoreSecurity):
             self._security = None
             return True
@@ -446,6 +454,13 @@ class SynologyDSM:
         if not self._network:
             self._network = SynoDSMNetwork(self)
         return self._network
+
+    @property
+    def photos(self) -> SynoPhotos:
+        """Gets NAS photos"""
+        if not self._photos:
+            self._photos = SynoPhotos(self)
+        return self._photos
 
     @property
     def security(self) -> SynoCoreSecurity:
