@@ -16,14 +16,17 @@ class SynoPhotos:
 
     # Get list of all albums
     def get_albums(self, offset=0, limit=100):
-        return self._dsm.get(self.BROWSE_ALBUMS_API_KEY, "list", {"offset": offset, "limit": limit})
+        res = self._dsm.get(
+            self.BROWSE_ALBUMS_API_KEY, "list", {"offset": offset, "limit": limit}
+        )
+        return res["data"]["list"]
 
     # Get list of all items in an album
     def get_items(self, album_id, offset=0, limit=100, additional=[]):
         res = self._dsm.get(
             self.BROWSE_ITEM_API_KEY, "list", {"album_id": album_id, "offset": offset, "limit": limit, "additional": additional}
         )
-        return res
+        return res["data"]["list"]
 
     # Search for item with keyword
     def get_search(self, keyword, offset=0, limit=100, additional=[]):
@@ -31,7 +34,7 @@ class SynoPhotos:
             self.SEARCH_API_KEY, "list_item",
             {"keyword": keyword, "offset": offset, "limit": limit, "additional": additional}
         )
-        return res
+        return res["data"]["list"]
 
     # Get the image
     def get_thumbnail(self, id, cache_key, size="xl"):
