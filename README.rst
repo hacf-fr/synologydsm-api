@@ -260,7 +260,38 @@ Upgrade usage
 
     # get need of service restarts (return None if no update available)
     upgrade.service_restarts
+    
+Photos usage
+--------------------------
 
+.. code-block:: python
+
+    from synology_dsm import SynologyDSM
+
+    api = SynologyDSM("<IP/DNS>", "<port>", "<username>", "<password>")
+    
+    # Get list of all albums
+    albums = api.photos.get_albums()
+    
+    # Get first album
+    album_id = albums[0]["id"]
+    
+    # Request all items from album, together with tumbnail information
+    items = api.photos.get_items(album_id, 0, 100, '["thumbnail"]')
+
+    # Get nescessary info to get the thumbnail
+    photo_id = items[0]["id"]
+    cache_key = items[0]["additional"]["thumbnail"]["cache_key"]
+    
+    # Get thumbnail
+    image = api.photos.get_thumbnail(str(photo_id), cache_key)
+    
+    # Create file
+    f = open(items[0]["filename"], "wb")
+    # Convert Byte data
+    newFileByteArray = bytearray(image)
+    f.write(newFileByteArray)
+    f.close()
 
 Credits / Special Thanks
 ========================
