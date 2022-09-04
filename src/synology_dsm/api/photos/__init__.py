@@ -43,3 +43,11 @@ class SynoPhotos:
             {"id": id, "cache_key": cache_key, "size": size, "type": "unit"}
         )
         return res
+
+    # Get the url to request the thumbnail
+    def get_thumbnail_url(self, id, cache_key, size="xl"):
+        res = self._dsm.get_url(
+            self.THUMBNAIL_API_KEY, "get",
+            {"id": id, "cache_key": cache_key, "size": size, "type": "unit"}
+        )
+        return res
