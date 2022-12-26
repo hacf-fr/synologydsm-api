@@ -41,7 +41,7 @@ safety = "^1.10.3"
 mypy = "^0.910"
 typeguard = "^2.12.1"
 xdoctest = {extras = ["colors"], version = "^0.15.8"}
-pre-commit = "^2.11.1"
+pre-commit = "^2.21.0"
 flake8 = "^3.9.0"
 black = "^21.8b0"
 flake8-bandit = "^2.1.2"
