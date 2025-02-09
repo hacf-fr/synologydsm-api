@@ -2,6 +2,11 @@
 Python API for Synology DSM
 ===========================
 
+Deprecated use : https://github.com/mib1185/py-synologydsm-api
+==============================================================
+
+
+
 .. image:: https://github.com/hacf-fr/synologydsm-api/workflows/Tests/badge.svg
     :target: https://github.com/hacf-fr/synologydsm-api/actions?query=workflow%3ATests+branch%3Amaster
 
